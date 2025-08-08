@@ -1,0 +1,260 @@
+/* Universal Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Playfair Display', serif;
+  scroll-behavior: smooth;
+  background-color: #f9f9f9;
+}
+
+/* Header & Footer Links */
+.a-header, .a-footer {
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.a-header:hover, .a-footer:hover {
+  color: #13b1cd !important;
+}
+
+/* Navbar Base */
+.Navbar {
+  width: 100%;
+  font-size: 1rem;
+  background-color: transparent;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 2em;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+
+.Navbar__Link {
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+.Navbar__Items {
+  display: flex;
+  gap: 1.5em;
+}
+
+/* Responsive Navbar (Mobile) */
+@media (max-width: 54em) {
+  .Navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(102, 102, 102, 0.9);
+  }
+
+  .Navbar__Items {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+  }
+
+  .Navbar__ToggleShow {
+    display: flex !important;
+  }
+
+  .Navbar__Link-toggle {
+    align-self: flex-end;
+    display: inline-block;
+    position: absolute;
+    top: 1em;
+    right: 2em;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+}
+
+/* Desktop Navbar */
+@media (min-width: 54.1em) {
+  .Navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr;
+  }
+
+  .Navbar__Items {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: end;
+  }
+
+  .Navbar__Link-toggle {
+    display: none;
+  }
+}
+
+/* Active Link */
+.active {
+  background-color: #cecece;
+  color: black !important;
+}
+
+.active .a-header {
+  color: black !important;
+}
+
+/* Parallax Background */
+.parallax_loader {
+  background: url('../img/loader-1.jpg') center/cover fixed no-repeat;
+  height: 100vh;
+  position: relative;
+}
+
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.para_content,
+.name_comp {
+  text-align: center;
+  color: white;
+}
+
+.name_comp {
+  padding-top: 10%;
+  font-size: 2em;
+}
+
+/* Section Padding */
+.about_sec {
+  padding: 4em 2em;
+}
+
+/* Car Section */
+.car_options {
+  text-align: center;
+}
+
+.slide_car {
+  padding: 3em;
+  display: grid;
+  grid-gap: 2em;
+}
+
+@media (min-width: 80.1em) {
+  .slide_car {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 80em) {
+  .slide_car {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 50em) {
+  .slide_car {
+    grid-template-columns: 1fr;
+    width: 90%;
+    margin: auto;
+  }
+}
+
+/* Slide Cards */
+.slide {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+}
+
+.slide-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(225, 35, 69, 0.4);
+  color: #fff;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 1em;
+  transition: transform 0.5s ease;
+}
+
+/* Hover Effects */
+.slide:hover .slide-content {
+  transform: translate(0, 0);
+}
+
+.slide-top .slide-content {
+  transform: translateY(-100%);
+}
+
+.slide-left .slide-content {
+  transform: translateX(-100%);
+}
+
+.slide-right .slide-content {
+  transform: translateX(100%);
+}
+
+.slide-bottom .slide-content {
+  transform: translateY(100%);
+}
+
+/* Footer */
+.foot {
+  padding: 2em;
+  font-family: 'Playfair Display', serif;
+  background-color: #1a1a1a;
+  color: #cecece;
+}
+
+.connectivity {
+  display: grid;
+  gap: 1em;
+  justify-content: center;
+  text-align: center;
+}
+
+.connectivity .a-footer {
+  color: #cecece !important;
+}
+
+.connectivity .a-footer:hover {
+  color: #13b1cd !important;
+}
+
+@media (min-width: 54.1em) {
+  .foot {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+  }
+
+  .connectivity {
+    grid-template-columns: repeat(4, auto);
+  }
+}
+
+@media (max-width: 54em) {
+  .foot {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
